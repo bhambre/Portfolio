@@ -1,0 +1,10 @@
+Flask
+gunicorn
+pandas
+numpy==1.13.3
+sklearn
+flask_restful
+sqlalchemy
+scipy
+flask_cors
+

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate,max-age=1" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+<style>
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 25%;
+  height: 10px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<title>Model/Portfolio Category Identification</title>
+<body onload="resetFunc()">
+
+<h1> Model/Portfolio Category Identification</h1>
+<p>Please enter your model or portfolios asset allocation percentages:</p>
+<form action = "/uploader" method = "POST" id="myForm">
+        <p>US Stock: <span id="demo1"></span>%</p>
+		<div class="slidecontainer">
+  		<input type="range" min="-100" max="100" value="0" step="1" class="slider" id="myRange1" name="usstock">
+
+  		<script>
+		var slider1 = document.getElementById("myRange1");
+		var output1 = document.getElementById("demo1");
+		output1.innerHTML = slider1.value;
+
+		slider1.oninput = function() {
+  		  output1.innerHTML = this.value;
+		}
+		</script>
+
+		<p>US Bond: <span id="demo2"></span>%</p>
+		<div class="slidecontainer">
+  			<input type="range" min="-100" max="100" value="0" class="slider" id="myRange2" name='usbond'>	
+
+  		<script>
+		var slider2 = document.getElementById("myRange2");
+		var output2 = document.getElementById("demo2");
+		output2.innerHTML = slider2.value;
+
+		slider2.oninput = function() {
+  		  output2.innerHTML = this.value;
+		}
+		</script>
+
+		<p>Preferred Stock: <span id="demo4"></span>%</p>
+		<div class="slidecontainer">
+  			<input type="range" min="-100" max="100" value="0" class="slider" id="myRange4" name='prefstock'>	
+
+  		<script>
+		var slider4 = document.getElementById("myRange4");
+		var output4 = document.getElementById("demo4");
+		output4.innerHTML = slider4.value;
+
+		slider4.oninput = function() {
+  		  output4.innerHTML = this.value;
+		}
+		</script>
+
+		<p>Non US Stock: <span id="demo5"></span>%</p>
+		<div class="slidecontainer">
+  			<input type="range" min="-100" max="100" value="0" class="slider" id="myRange5" name='nonusstock'>	
+
+  		<script>
+		var slider5 = document.getElementById("myRange5");
+		var output5 = document.getElementById("demo5");
+		output5.innerHTML = slider5.value;
+
+		slider5.oninput = function() {
+  		  output5.innerHTML = this.value;
+		}
+		</script>
+
+		<p>Non US Bond: <span id="demo6"></span>%</p>
+		<div class="slidecontainer">
+  			<input type="range" min="-100" max="100" value="0" class="slider" id="myRange6" name='nonusbond'>	
+
+  		<script>
+		var slider6 = document.getElementById("myRange6");
+		var output6 = document.getElementById("demo6");
+		output6.innerHTML = slider6.value;
+
+		slider6.oninput = function() {
+  		  output6.innerHTML = this.value;
+		}
+		</script>
+
+		<p>Derevative: <span id="demo7"></span>%</p>
+		<div class="slidecontainer">
+  			<input type="range" min="-100" max="100" value="0" class="slider" id="myRange7" name="derevative">
+
+  		<script>
+		var slider7 = document.getElementById("myRange7");
+		var output7 = document.getElementById("demo7");
+		output7.innerHTML = slider7.value;
+
+		slider7.oninput = function() {
+  		  output7.innerHTML = this.value;
+		}
+		</script>
+
+		<p>Depository Receipt: <span id="demo8"></span>%</p>
+		<div class="slidecontainer">
+  			<input type="range" min="-100" max="100" value="0" class="slider" id="myRange8" name="depreceipt">
+
+  		<script>
+		var slider8 = document.getElementById("myRange8");
+		var output8 = document.getElementById("demo8");
+		output8.innerHTML = slider8.value;
+
+		slider8.oninput = function() {
+  		  output8.innerHTML = this.value;
+		}
+		</script>
+
+		<p>Convertible: <span id="demo10"></span>%</p>
+		<div class="slidecontainer">
+  			<input type="range" min="-100" max="100" value="0" class="slider" id="myRange10" name="convertible">
+
+  		<script>
+		var slider10 = document.getElementById("myRange10");
+		var output10 = document.getElementById("demo10");
+		output10.innerHTML = slider10.value;
+
+		slider10.oninput = function() {
+  		  output10.innerHTML = this.value;
+		}
+		</script>
+
+		<p>Cash: <span id="demo11"></span>%</p>
+		<div class="slidecontainer">
+  			<input type="range" min="-100" max="100" value="0" class="slider" id="myRange11" name="cash">
+
+  		<script>
+		var slider11 = document.getElementById("myRange11");
+		var output11 = document.getElementById("demo11");
+		output11.innerHTML = slider11.value;
+
+		slider11.oninput = function() {
+  		  output11.innerHTML = this.value;
+		}
+		</script>
+
+		<p>Other: <span id="demo12"></span>%</p>
+		<div class="slidecontainer">
+  			<input type="range" min="-100" max="100" value="0" class="slider" id="myRange12" name="other">
+
+  		<script>
+		var slider12 = document.getElementById("myRange12");
+		var output12 = document.getElementById("demo12");
+		output12.innerHTML = slider12.value;
+
+		slider12.oninput = function() {
+  		  output12.innerHTML = this.value;
+		}
+		</script>
+
+        <p><input type = "submit"/><p>
+        <input onclick="resetFunc()" type="button" value="Reset">
+</form>
+<script>
+  function resetFunc(){
+    document.getElementById("myForm").reset();
+    var output1 = document.getElementById("demo1");
+    output1.innerHTML = 0;
+    var output2 = document.getElementById("demo2");
+    output2.innerHTML = 0;
+    var output4 = document.getElementById("demo4");
+    output4.innerHTML = 0;
+    var output5 = document.getElementById("demo5");
+    output5.innerHTML = 0;
+    var output6 = document.getElementById("demo6");
+    output6.innerHTML = 0;
+    var output7 = document.getElementById("demo7");
+    output7.innerHTML = 0;
+    var output8 = document.getElementById("demo8");
+    output8.innerHTML = 0;
+    var output10 = document.getElementById("demo10");
+    output10.innerHTML = 0;
+    var output11 = document.getElementById("demo11");
+    output11.innerHTML = 0;
+    var output12 = document.getElementById("demo12");
+    output12.innerHTML = 0;
+  }
+</script>
+</body>
+</html>
+
